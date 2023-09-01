@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Genero
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,5 +13,18 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+
+  <ion-content> 
+    <ion-list>
+      <ion-item *ngFor="let generoitem of misgeneros"> 
+        <ion-icon slot="start" name="logo-ionic"></ion-icon>
+        <ion-label>
+          <h2>{{generoitem.nombre}}</h2>
+          <p>{{generoitem.descripcion}}</p>
+        </ion-label>
+
+      </ion-item>
+        
+    </ion-list>
+  </ion-content>
 </ion-content>
