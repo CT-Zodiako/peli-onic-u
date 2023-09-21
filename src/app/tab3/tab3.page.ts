@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GENEROS } from './lista-generos';
+import {Genero} from './genero';
+import {GenerosService} from '../services/generos.service';
 
 @Component({
   selector: 'app-tab3',
@@ -8,17 +9,15 @@ import { GENEROS } from './lista-generos';
 })
 export class Tab3Page implements OnInit {
 
-  // public pelicula : Pelicula={
-  //   id: 1,
-  //   nombre: "Matrix",
-  //   genero: "scifi",
-  //   director: "Pipito perez",
-  //   portada: "no imagen"
-  // }
-  public misgeneros = GENEROS
-  constructor() { }
 
+  public misgeneros? : Genero[];
+  constructor(private generosService:GenerosService) { }
+
+  getGeneros(): void {
+    this.generosService.getGeneros().subscribe(generos => this.misgeneros = generos);
+  }
   ngOnInit() {
+    this.getGeneros();
   }
 
 }
