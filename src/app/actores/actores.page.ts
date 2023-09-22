@@ -29,7 +29,9 @@ export class ActoresPage implements OnInit {
       this.peliculaService.getUnaPelicula(params['id']).subscribe(selecionado => {
         this.seleccionado = selecionado;
       });
-      this.actorService.getActoresPorPelicula(params['id']).subscribe(actores => { this.actores = actores});
+    this.actorService.getActoresPorPelicula(params["id"])?.subscribe(actores => {
+      this.actores = actores;
+    })
     });
   }
 
