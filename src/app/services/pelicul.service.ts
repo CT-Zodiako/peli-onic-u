@@ -34,4 +34,10 @@ export class PeliculService {
     return of(PELICULAS[indice]);
   }
 
+  crearNuevo(pelicula:Pelicula): Observable<Pelicula>{
+    PELICULAS.push(pelicula);
+    let indice: number = PELICULAS.findIndex(x => x.id === pelicula.id);
+    return of(PELICULAS[indice])
+  }
+
 }

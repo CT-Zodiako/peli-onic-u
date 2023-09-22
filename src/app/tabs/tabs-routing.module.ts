@@ -28,6 +28,10 @@ const routes: Routes = [
         loadChildren: () => import('../editarpelicula/editarpelicula.module').then(m => m.EditarpeliculaPageModule)
       },
       {
+        path: 'nuevapelicula',
+        loadChildren: () => import('../nuevapelicula/nuevapelicula.module').then(m => m.NuevapeliculaPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'
