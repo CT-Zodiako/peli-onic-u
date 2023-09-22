@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Editar pelicula</ion-title>
+    <ion-buttons slop="start">
+      <ion-button (click)="regresar()">
+        <ion-icon name="close-outlinne"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" *ngIf="seleccionado">
+  <form (ngSubmit)="editar(seleccionado)" #editarForm="ngForm">
+    <ion-list>
+      <ion-item>
+        <ion-label posicion="floating">ID:</ion-label>
+        <ion-input aria-label="ID:" type="text" readonly="true" name="id" [(ngModel)]="seleccionado.id" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label posicion="floating">Nombre de pelicula:</ion-label>
+        <ion-input type="text" name="nombre" [(ngModel)]="seleccionado.nombre" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label posicion="floating">Genero:</ion-label>
+        <ion-select required value="{{seleccionado.genero}}" [(ngModel)]="seleccionado.genero" name="genero">
+          <ion-select-option value="scifi">scifi</ion-select-option>
+          <ion-select-option value="comedia">comedia</ion-select-option>
+          <ion-select-option value="accion">accion</ion-select-option>
+          <ion-select-option value="infantil">infantil</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label posicion="floating">Director:</ion-label>
+        <ion-input type="text" name="director" [(ngModel)]="seleccionado.director"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label posicion="floating">Portada:</ion-label>
+        <ion-input type="text" name="portada" [(ngModel)]="seleccionado.portada"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button color="primary" type="submit" *ngIf="seleccionado" [disabled]="!editarForm.form.valid">
+      Guardar
+    </ion-button>
+  </form>
+</ion-content>

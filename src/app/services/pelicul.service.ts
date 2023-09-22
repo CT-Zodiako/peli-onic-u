@@ -21,4 +21,17 @@ export class PeliculService {
     }
     return of(PELICULAS);
   }
+
+  getUnaPelicula(id: number):Observable<Pelicula | undefined>{
+    id = Number(id);
+    return of(PELICULAS.find(x => x.id === id));
+  }
+
+  editarPelicula(pelicula:Pelicula): Observable<Pelicula | undefined>{
+    let id = Number(pelicula.id);
+    let indice:number = PELICULAS.findIndex(x => x.id === id)
+    PELICULAS[indice] = pelicula;
+    return of(PELICULAS[indice]);
+  }
+
 }

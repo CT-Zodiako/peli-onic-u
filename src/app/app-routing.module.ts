@@ -9,7 +9,15 @@ const routes: Routes = [
   {
     path: 'peliculas',
     loadChildren: () => import('./peliculas/peliculas.module').then( m => m.PeliculasPageModule)
-  }
+  },
+  {
+    path: 'editarpelicula/:id',
+    loadChildren: () => import('./editarpelicula/editarpelicula.module').then( m => m.EditarpeliculaPageModule)
+  },
+  {
+    path: 'nuevapelicula',
+    loadChildren: () => import('./nuevapelicula/nuevapelicula.module').then( m => m.NuevapeliculaPageModule)
+  },
 ];
 @NgModule({
   imports: [
