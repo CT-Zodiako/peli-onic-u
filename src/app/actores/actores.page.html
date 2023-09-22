@@ -1,13 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>actores</ion-title>
+    <ion-title *ngIf="seleccionado">Reparto: {{seleccionado.nombre}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">actores</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card *ngFor="let actorItem of actores">
+    <ion-item>
+      <ion-icon slop="start" name="person-circle"></ion-icon>
+      <ion-label>
+        <h2>{{actorItem.nombre_actor}}</h2>
+      </ion-label>
+    </ion-item>
+    <ion-card-content>
+      <p>Descripcion del actor. puede listar mayor informacion</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
